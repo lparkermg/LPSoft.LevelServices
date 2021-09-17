@@ -25,7 +25,6 @@ namespace LevelServices.Test
             Assert.That(service.BaseMaps, Is.EqualTo(expectedMaps));
         }
 
-        // SetCurrentMap no maps loaded.
         [Test]
         public void SetCurrentMap_GivenNoLoadedMaps_ThrowsArgumentException()
         {
@@ -33,7 +32,6 @@ namespace LevelServices.Test
             Assert.That(() => service.SetCurrentMap(0), Throws.ArgumentException.With.Message.EqualTo("Cannot set current map, base maps have not been loaded"));
         }
 
-        // SetCurrentMap maps loaded negative index, throws argument exception.
         [Test]
         public void SetCurrentMap_GivenNegativeIndex_ThrowsArgumentException()
         {
@@ -41,7 +39,6 @@ namespace LevelServices.Test
             Assert.That(() => service.SetCurrentMap(-5), Throws.ArgumentException.With.Message.EqualTo("Cannot set current map, index cannot be negative"));
         }
 
-        // SetCurrentMap maps loaded index more than maps length, throws argument exception.
         [Test]
         public void SetCurrentMap_GivenIndexMoreThanMaps_ThrowsArgumentException()
         {
@@ -52,7 +49,6 @@ namespace LevelServices.Test
             Assert.That(() => service.SetCurrentMap(maps.Length + 5), Throws.ArgumentException.With.Message.EqualTo("Cannot set current map, index is higher than loaded maps length"));
         }
 
-        // SetCurrentMap maps loaded valid index, sets CurrentMap property.
         [Test]
         public void SetCurrentMap_GivenValidIndex_SetsCurrentMapProperty()
         {
