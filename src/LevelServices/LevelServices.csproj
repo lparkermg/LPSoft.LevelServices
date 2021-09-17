@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/lparkermg/LPSoft.LevelServices/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lparkermg/LPSoft.LevelServices/</RepositoryUrl>
+    <Copyright>Copyright by Luke Parker (2021)</Copyright>
+    <PackageReleaseNotes>Initial release of the LevelService package.</PackageReleaseNotes>
+    <Version>0.0.1</Version>
+    <License>https://github.com/lparkermg/LPSoft.LevelServices/LICENSE</License>
+    <Authors>Luke Parker</Authors>
+    <Company>Luke Parker</Company>
+    <PackageId>LPSoft.LevelServices</PackageId>
+    <Description>Provides simple level handling for loading and selecting level data.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <DocumentationFile>.\bin\Debug\net5.0\LevelServices.xml</DocumentationFile>
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>.\bin\Release\net5.0\LevelServices.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LPSoft.CSharp.Codestyles" Version="0.0.1-alpha">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
