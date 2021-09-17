@@ -1,4 +1,4 @@
-﻿// <copyright file="TileBasedLevelService.cs" company="Luke Parker">
+﻿// <copyright file="LevelService.cs" company="Luke Parker">
 // Copyright (c) Luke Parker. All rights reserved.
 // </copyright>
 
@@ -10,10 +10,10 @@ namespace LevelServices
     using LevelServices.Interfaces;
 
     /// <summary>
-    /// Implements the <see cref="ILevelService{TMapData}"/> for tile based levels.
+    /// Implements the <see cref="ILevelService{TMapData}"/>.
     /// </summary>
     /// <typeparam name="TMapData">The data type for the map data.</typeparam>
-    public class TileBasedLevelService<TMapData> : ILevelService<TMapData>
+    public class LevelService<TMapData> : ILevelService<TMapData>
     {
         /// <summary>
         /// Gets the loaded base maps.
@@ -28,7 +28,7 @@ namespace LevelServices
         /// <summary>
         /// Loads maps from the provided <see cref="Stream"/> deserialized using <see cref="XmlSerializer"/>.
         /// </summary>
-        /// <param name="mapStream">Stream to provide </param>
+        /// <param name="mapStream">Stream to provide map data.</param>
         public void SetBaseMaps(Stream mapStream)
         {
             if (mapStream == null)

@@ -1,6 +1,4 @@
-using LevelServices.Interfaces;
 using NUnit.Framework;
-using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -11,7 +9,7 @@ namespace LevelServices.Test
         [Test]
         public void SetBaseMaps_GivenNullMapData_ThrowsArgumentNullException()
         {
-            var service = new TileBasedLevelService<string>();
+            var service = new LevelService<string>();
             Assert.That(() => service.SetBaseMaps(null), Throws.ArgumentNullException);
         }
 
@@ -28,14 +26,14 @@ namespace LevelServices.Test
         [Test]
         public void SetCurrentMap_GivenNoLoadedMaps_ThrowsArgumentException()
         {
-            var service = new TileBasedLevelService<string>();
+            var service = new LevelService<string>();
             Assert.That(() => service.SetCurrentMap(0), Throws.ArgumentException.With.Message.EqualTo("Cannot set current map, base maps have not been loaded"));
         }
 
         [Test]
         public void SetCurrentMap_GivenNegativeIndex_ThrowsArgumentException()
         {
-            var service = new TileBasedLevelService<string>();
+            var service = new LevelService<string>();
             Assert.That(() => service.SetCurrentMap(-5), Throws.ArgumentException.With.Message.EqualTo("Cannot set current map, index cannot be negative"));
         }
 
@@ -59,7 +57,7 @@ namespace LevelServices.Test
             Assert.That(service.CurrentMap, Is.EqualTo(maps[1]));
         }
 
-        private TileBasedLevelService<T> SetupService<T>(T[] dataToSet)
+        private LevelService<T> SetupService<T>(T[] dataToSet)
         {
             var memStream = new MemoryStream();
             var serializer = new XmlSerializer(typeof(T[]));
@@ -67,7 +65,7 @@ namespace LevelServices.Test
 
             // Set to position zero before passing in the stream.
             memStream.Position = 0;
-            var service = new TileBasedLevelService<T>();
+            var service = new LevelService<T>();
 
             service.SetBaseMaps(memStream);
 
