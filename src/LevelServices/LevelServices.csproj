@@ -12,6 +12,7 @@
     <Authors>Luke Parker</Authors>
     <Company>Luke Parker</Company>
     <PackageId>LPSoft.LevelServices</PackageId>
+    <Description>Provides simple level handling for loading and selecting level data.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
