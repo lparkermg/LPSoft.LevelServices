@@ -17,5 +17,11 @@ namespace LevelServices.Interfaces
         /// </summary>
         /// <param name="mapStream">Stream to load the map data from.</param>
         void SetBaseMaps(Stream mapStream);
+
+        /// <summary>
+        /// Sets the current map.
+        /// </summary>
+        /// <param name="index">The index of the map to be set.</param>
+        void SetCurrentMap(int index);
     }
 }

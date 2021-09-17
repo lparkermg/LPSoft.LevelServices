@@ -18,9 +18,17 @@ namespace LevelServices
         /// <summary>
         /// Gets the loaded base maps.
         /// </summary>
-        public TMapData BaseMaps { get; private set; }
+        public TMapData[] BaseMaps { get; private set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets the currently selected map.
+        /// </summary>
+        public TMapData CurrentMap { get; private set; }
+
+        /// <summary>
+        /// Loads maps from the provided <see cref="Stream"/> deserialized using <see cref="XmlSerializer"/>.
+        /// </summary>
+        /// <param name="mapStream">Stream to provide </param>
         public void SetBaseMaps(Stream mapStream)
         {
             if (mapStream == null)
@@ -28,8 +36,29 @@ namespace LevelServices
                 throw new ArgumentNullException(nameof(mapStream));
             }
 
-            var serializer = new XmlSerializer(typeof(TMapData));
-            BaseMaps = (TMapData)serializer.Deserialize(mapStream);
+            var serializer = new XmlSerializer(typeof(TMapData[]));
+            BaseMaps = (TMapData[])serializer.Deserialize(mapStream);
+        }
+
+        /// <inheritdoc />
+        public void SetCurrentMap(int index)
+        {
+            if (index < 0)
+            {
+                throw new ArgumentException("Cannot set current map, index cannot be negative");
+            }
+
+            if (BaseMaps == null)
+            {
+                throw new ArgumentException("Cannot set current map, base maps have not been loaded");
+            }
+
+            if (index > BaseMaps.Length)
+            {
+                throw new ArgumentException("Cannot set current map, index is higher than loaded maps length");
+            }
+
+            CurrentMap = BaseMaps[index];
         }
     }
 }
