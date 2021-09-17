@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace LevelServices.Test
+namespace LPSoft.LevelServices.Test
 {
     public class TileBasedLevelServiceTests
     {

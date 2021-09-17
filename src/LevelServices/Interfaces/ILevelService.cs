@@ -2,7 +2,7 @@
 // Copyright (c) Luke Parker. All rights reserved.
 // </copyright>
 
-namespace LevelServices.Interfaces
+namespace LPSoft.LevelServices.Interfaces
 {
     using System.IO;
 

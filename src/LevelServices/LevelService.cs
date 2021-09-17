@@ -2,12 +2,12 @@
 // Copyright (c) Luke Parker. All rights reserved.
 // </copyright>
 
-namespace LevelServices
+namespace LPSoft.LevelServices
 {
     using System;
     using System.IO;
     using System.Xml.Serialization;
-    using LevelServices.Interfaces;
+    using LPSoft.LevelServices.Interfaces;
 
     /// <summary>
     /// Implements the <see cref="ILevelService{TMapData}"/>.
